@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-learn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErmolaevID/nodejs-learn.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Ermolaev Ilya <Ermolaev.ID@yandex.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErmolaevID/nodejs-learn/issues"
+  },
+  "homepage": "https://github.com/ErmolaevID/nodejs-learn#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
