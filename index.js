@@ -11,15 +11,15 @@ const hbs = exphbs.create({
 });
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
-app.set("views", "vies");
+app.set("views", "views");
 
 app.get("/", (req, res) => { 
   res.status(200);
-  res.sendFile(path.join(__dirname, "views", "index.html"));
+  res.render("index");
 }); 
 app.get("/about.html", (req, res) => {
   res.status(200);
-  res.sendFile(path.join(__dirname, "views", "about.html"));
+  res.render("about");
 });
 
 app.listen(PORT, () => {
