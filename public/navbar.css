@@ -6,6 +6,10 @@ ul li {
   display: inline;
 }
 
+.active .nav__menu__element {
+  opacity: 30%;
+}
+
 .nav_wrapper {
   display: flex;
   justify-content: center;

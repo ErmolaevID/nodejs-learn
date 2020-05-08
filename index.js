@@ -18,19 +18,22 @@ app.use(express.static("public"));
 app.get("/", (req, res) => { 
   res.status(200);
   res.render("index", {
-    title: "Main"
+    title: "Main",
+    isHome: true
   });
 }); 
 app.get("/courses", (req, res) => {
   res.status(200);
   res.render("courses", {
-    title: "Courses"
+    title: "Courses",
+    isCourses: true
   });
 });
 app.get("/add", (req, res) => {
   res.status(200);
   res.render("add", {
-    title: "Add Course"
+    title: "Add Course",
+    isAdd: true
   });
 });
 

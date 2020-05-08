@@ -2,9 +2,23 @@
     <div class="nav_wrapper">
         <a href="#" class="nav__title">University</a>
         <ul class="nav__menu">
-            <li><a href="/" class="nav__menu__element">Main</a></li>
+            {{#if isHome }}
+                <li class="active"><a href="/" class="nav__menu__element">Main</a></li>
+            {{else }}
+                <li><a href="/" class="nav__menu__element">Main</a></li>
+            {{/if }}
+
+            {{#if isCourses}}
+            <li class="active"><a href="/courses" class="nav__menu__element">Courses</a></li>
+            {{else }}
             <li><a href="/courses" class="nav__menu__element">Courses</a></li>
+            {{/if }}
+
+            {{#if isAdd}}
+            <li class="active"><a href="/add" class="nav__menu__element">Add course</a></li>
+            {{else }}
             <li><a href="/add" class="nav__menu__element">Add course</a></li>
+            {{/if }}
         </ul>
     </div>
 </nav>
