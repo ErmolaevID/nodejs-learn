@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "tsc:w": "tsc -w"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,8 @@
     "express-handlebars": "^4.0.4"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "@types/node": "^13.13.5",
+    "nodemon": "^2.0.3",
+    "typescript": "^3.8.3"
   }
 }
