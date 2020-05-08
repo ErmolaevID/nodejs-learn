@@ -1,7 +1,7 @@
 const {Router} = require("express");
 const router = Router();
 
-router.get("/courses", (req, res) => {
+router.get("/", (req, res) => {
   res.status(200);
   res.render("courses", {
     title: "Courses",
