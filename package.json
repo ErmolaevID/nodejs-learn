@@ -22,8 +22,10 @@
   },
   "homepage": "https://github.com/ErmolaevID/nodejs-learn#readme",
   "dependencies": {
+    "@types/uuid": "^7.0.3",
     "express": "^4.17.1",
-    "express-handlebars": "^4.0.4"
+    "express-handlebars": "^4.0.4",
+    "uuid": "^8.0.0"
   },
   "devDependencies": {
     "@types/node": "^13.13.5",
