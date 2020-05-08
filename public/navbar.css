@@ -1,0 +1,32 @@
+ul {
+  display: inline-block;
+}
+
+ul li {
+  display: inline;
+}
+
+.nav_wrapper {
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto";
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.nav_wrapper .nav__title {
+  margin-right: 50%;
+  color: black;
+  font-weight: 500;
+}
+
+.nav_wrapper .nav__menu {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.nav_wrapper .nav__menu .nav__menu__element {
+  color: black;
+  vertical-align: middle;
+  margin-right: 30px;
+}
