@@ -17,15 +17,21 @@ app.use(express.static("public"));
 
 app.get("/", (req, res) => { 
   res.status(200);
-  res.render("index");
+  res.render("index", {
+    title: "Main"
+  });
 }); 
 app.get("/courses", (req, res) => {
   res.status(200);
-  res.render("courses");
+  res.render("courses", {
+    title: "Courses"
+  });
 });
 app.get("/add", (req, res) => {
   res.status(200);
-  res.render("add");
+  res.render("add", {
+    title: "Add Course"
+  });
 });
 
 app.listen(PORT, () => {
