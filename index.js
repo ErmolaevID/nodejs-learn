@@ -1,6 +1,6 @@
 const express = require("express"); 
-const path = require("path");
 const exphbs = require("express-handlebars");
+const homeRoutes = require("./routes/home");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,14 +14,8 @@ app.set("view engine", "hbs");
 app.set("views", "views");
 
 app.use(express.static("public"));
+app.use(homeRoutes);
 
-app.get("/", (req, res) => { 
-  res.status(200);
-  res.render("index", {
-    title: "Main",
-    isHome: true
-  });
-}); 
 app.get("/courses", (req, res) => {
   res.status(200);
   res.render("courses", {
