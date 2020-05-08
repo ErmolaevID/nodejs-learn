@@ -23,6 +23,10 @@ app.get("/courses", (req, res) => {
   res.status(200);
   res.render("courses");
 });
+app.get("/add", (req, res) => {
+  res.status(200);
+  res.render("add");
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
