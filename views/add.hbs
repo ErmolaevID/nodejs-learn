@@ -1,9 +1,13 @@
 <h1>Add course Page</h1>
-<form action="/add" method="POST">
-  <div class="input_field">
-    <input type="text" placeholder="Here" class="validate" name="title">
-    <input type="text" placeholder="Here" class="validate" name="img">
-    <input type="text" placeholder="Here" class="validate" name="price">
+<form action="/add" method="POST" class="input_field">
+  <div class="input_field_title">
+    <input type="text" placeholder="Title" class="validate" name="title">
+  </div>
+  <div class="input_field_img">
+    <input type="text" placeholder="IMG" class="validate" name="img">
+  </div>
+  <div class="input_field_price">
+    <input type="text" placeholder="Price" class="validate" name="price">
   </div>
   <button>Add</button>
 </form>

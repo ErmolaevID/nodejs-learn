@@ -1,0 +1,45 @@
+.input_field {
+  margin-top: 80px;
+  margin-left: 30%;
+}
+
+.input_field .input_field_title {
+  width: 400px;
+  height: 30px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  margin-bottom: 50px;
+}
+
+.input_field .input_field_img {
+  width: 400px;
+  height: 30px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  margin-bottom: 50px;
+}
+
+.input_field .input_field_price {
+  width: 400px;
+  height: 30px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  margin-bottom: 50px;
+}
+
+.input_field .validate {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-top: 4px;
+}
+
+.input_field button {
+  width: 60px;
+  height: 40px;
+  background: #3877ff;
+  color: #ffffff;
+  border-radius: 15px;
+  font-size: 20px;
+}
