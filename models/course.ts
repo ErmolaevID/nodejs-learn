@@ -1,7 +1,6 @@
 import { v4 as uuid } from "uuid";
 import fs = require("fs");
 import path = require("path");
-import { rejects } from "assert";
  
 export class Course {
   protected readonly id: string;
