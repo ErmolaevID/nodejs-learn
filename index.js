@@ -19,10 +19,6 @@ app.get("/", (req, res) => {
   res.status(200);
   res.render("index");
 }); 
-app.get("/about.html", (req, res) => {
-  res.status(200);
-  res.render("about");
-});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
