@@ -18,7 +18,7 @@ export class Course {
       id: this.id
     };
   };
-  private static getAllCourses(): Promise<any> {
+  public static getAllCourses(): Promise<any> {
     return new Promise((resolve, reject) => {
       fs.readFile(
         path.join(__dirname, '..', 'data', 'courses.json'),
