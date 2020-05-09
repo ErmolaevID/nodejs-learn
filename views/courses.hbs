@@ -1,7 +1,14 @@
 <h1>Courses Page</h1>
 
 {{#if courses.length }}
-<pre>{{courses}}</pre>
+{{#each courses}}
+<div class="course_form">
+  <img src="{{img}}" alt="" width="140">
+  <p class="course_title">{{title}}</p>
+  <p class="course_price">{{price}}</p>
+  <a href="/courses/{{id}}">Open</a>
+</div>
+{{/each }}
 {{else }}
 <p>Nothing</p>
 {{/if }}
