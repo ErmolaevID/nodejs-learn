@@ -11,5 +11,12 @@ router.get("/", async (req, res) => {
     courses
   });
 });
+router.get("/:id", async (req, res) => {
+  const course = await Course.getCourseById(req.params.id);
+  res.render("course", {
+    title: course.title,
+    course
+  });
+});
 
 module.exports = router
