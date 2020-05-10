@@ -21,7 +21,7 @@ export class Course {
     const courses = await Course.getAllCourses();
     return courses.find(element => element.id === id);
   };
-  private toJSON(): Object {
+  private toJSON(): element {
     return {
       title: this.title,
       price: this.price,
