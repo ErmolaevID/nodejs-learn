@@ -29,6 +29,24 @@ export class Course {
       id: this.id
     };
   };
+  public static async updateCourseById(course: Element) {
+    const courses = await Course.getAllCourses();
+    const index = courses.findIndex(c => c.id === course.id);
+    courses[index] = course;
+    return new Promise((resolve, reject) => {
+      fs.writeFile(
+        path.join(__dirname, "..", "data", "courses.json"),
+        JSON.stringify(courses),
+        (error) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve();
+          }
+        }
+      );
+    });
+  }
   public static async getAllCourses(): Promise<Array<Element>> {
     return new Promise((resolve, reject) => {
       fs.readFile(

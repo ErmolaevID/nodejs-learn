@@ -9,8 +9,8 @@ router.get("/", async (req, res) => {
     title: "Courses",
     isCourses: true,
     courses
-  });
-});
+  })
+})
 router.get("/:id", async (req, res) => {
   const course = await Course.getCourseById(req.params.id);
   res.render("course", {
@@ -18,7 +18,23 @@ router.get("/:id", async (req, res) => {
     title: course.title,
     price: course.price,
     course
-  });
-});
+  })
+})
+router.get("/:id/edit", async (req, res) => {
+  if (!req.query.allow) {
+    return res.redirect("/");
+  }
+  const course = await Course.getCourseById(req.params.id);
+  res.render("course-edit", {
+    title: course.title,
+    price: course.price,
+    img: course.img,
+    course
+  })
+})
+router.post("/edit", async (req, res) => {
+  await Course.updateCourseById(req.body);
+  res.redirect("/courses");
+})
 
 module.exports = router

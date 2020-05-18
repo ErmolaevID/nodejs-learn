@@ -1,0 +1,14 @@
+<h1>Edit course {{course.title}}</h1>
+<form action="/courses/edit" method="POST" class="input_field">
+  <div class="input_field_title">
+    <input type="text" placeholder="Title" class="validate" name="title" value="{{course.title}}">
+  </div>
+  <div class="input_field_img">
+    <input type="text" placeholder="IMG" class="validate" name="img" value="{{course.img}}">
+  </div>
+  <div class="input_field_price">
+    <input type="text" placeholder="Price" class="validate" name="price" value="{{course.price}}">
+  </div>
+  <input type="hidden" name="id" value="{{course.id}}">
+  <button>Confirm</button>
+</form>
