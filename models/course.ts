@@ -6,7 +6,7 @@ interface Element {
   title: string;
   price: string;
   img: string;
-  id: string
+  id: string;
 }
  
 export class Course {
@@ -16,19 +16,19 @@ export class Course {
     this.price = price;
     this.img = img;
     this.id = uuid();
-  };
+  }
   public static async getCourseById(id: string) {
     const courses = await Course.getAllCourses();
     return courses.find(element => element.id === id);
-  };
+  }
   private toJSON(): Element {
     return {
       title: this.title,
       price: this.price,
       img: this.img,
       id: this.id
-    };
-  };
+    }
+  }
   public static async updateCourseById(course: Element) {
     const courses = await Course.getAllCourses();
     const index = courses.findIndex(c => c.id === course.id);
@@ -44,8 +44,8 @@ export class Course {
             resolve();
           }
         }
-      );
-    });
+      )
+    })
   }
   public static async getAllCourses(): Promise<Array<Element>> {
     return new Promise((resolve, reject) => {
@@ -57,11 +57,11 @@ export class Course {
             reject(error);
           } else {
             resolve(JSON.parse(content));
-          };
+          }
         }
-      );
-    });
-  };
+      )
+    })
+  }
   public async save() {
     const courses = await Course.getAllCourses();
     courses.push(this.toJSON());
@@ -76,7 +76,7 @@ export class Course {
             resolve();
           }
         }
-      );
-    });
-  };
+      )
+    })
+  }
 }
