@@ -2,7 +2,7 @@ import { v4 as uuid } from "uuid";
 import fs = require("fs");
 import path = require("path");
 
-interface element {
+interface Element {
   title: string;
   price: string;
   img: string;
@@ -21,7 +21,7 @@ export class Course {
     const courses = await Course.getAllCourses();
     return courses.find(element => element.id === id);
   };
-  private toJSON(): element {
+  private toJSON(): Element {
     return {
       title: this.title,
       price: this.price,
@@ -29,7 +29,7 @@ export class Course {
       id: this.id
     };
   };
-  public static async getAllCourses(): Promise<Array<element>> {
+  public static async getAllCourses(): Promise<Array<Element>> {
     return new Promise((resolve, reject) => {
       fs.readFile(
         path.join(__dirname, '..', 'data', 'courses.json'),
