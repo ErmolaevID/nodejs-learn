@@ -14,7 +14,9 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const course = await Course.getCourseById(req.params.id);
   res.render("course", {
+    layout: "empty",
     title: course.title,
+    price: course.price,
     course
   });
 });
