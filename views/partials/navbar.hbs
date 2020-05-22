@@ -9,15 +9,21 @@
             {{/if }}
 
             {{#if isCourses}}
-            <li class="active"><a href="/courses" class="nav__menu__element">Courses</a></li>
+                <li class="active"><a href="/courses" class="nav__menu__element">Courses</a></li>
             {{else }}
-            <li><a href="/courses" class="nav__menu__element">Courses</a></li>
+                <li><a href="/courses" class="nav__menu__element">Courses</a></li>
             {{/if }}
 
             {{#if isAdd}}
-            <li class="active"><a href="/add" class="nav__menu__element">Add course</a></li>
+                <li class="active"><a href="/add" class="nav__menu__element">Add course</a></li>
             {{else }}
-            <li><a href="/add" class="nav__menu__element">Add course</a></li>
+                <li><a href="/add" class="nav__menu__element">Add course</a></li>
+            {{/if }}
+
+            {{#if isCard}}
+                <li class="active"><a href="/card" class="nav__menu__element">Card</a></li>
+            {{else }}
+                <li><a href="/card" class="nav__menu__element">Card</a></li>
             {{/if }}
         </ul>
     </div>

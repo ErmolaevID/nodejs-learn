@@ -2,11 +2,12 @@ import { v4 as uuid } from "uuid";
 import fs = require("fs");
 import path = require("path");
 
-interface Element {
+export interface Element {
   title: string;
-  price: string;
+  price: number;
   img: string;
   id: string;
+  count?: number;
 }
  
 export class Course {

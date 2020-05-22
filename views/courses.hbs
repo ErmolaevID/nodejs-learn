@@ -8,6 +8,10 @@
   <p class="course_price">{{price}}</p>
   <a href="/courses/{{id}}">Open</a>
   <a href="/courses/{{id}}/edit?allow=true">Edit</a>
+  <form action="/card/add" method="POST">
+    <input type="hidden" name="id" value="{{id}}">
+    <button type="submit">Buy</button>
+  </form>
 </div>
 {{/each }}
 {{else }}
