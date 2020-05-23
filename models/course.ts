@@ -2,7 +2,7 @@ import { v4 as uuid } from "uuid";
 import fs = require("fs");
 import path = require("path");
 
-export interface Element {
+export interface CourseElement {
   title: string;
   price: number;
   img: string;
@@ -11,8 +11,8 @@ export interface Element {
 }
  
 export class Course {
-  protected readonly id: string;
-  constructor(protected title: string, protected price: string, protected img: string) {
+  public readonly id: string;
+  constructor(public title: string, public price: number, public img: string) {
     this.title = title;
     this.price = price;
     this.img = img;
@@ -22,15 +22,15 @@ export class Course {
     const courses = await Course.getAllCourses();
     return courses.find(element => element.id === id);
   }
-  private toJSON(): Element {
+  private static toJSON(newCourse: CourseElement) {
     return {
-      title: this.title,
-      price: this.price,
-      img: this.img,
-      id: this.id
+      title: newCourse.title,
+      price: newCourse.price,
+      img: newCourse.img,
+      id: newCourse.id
     }
   }
-  public static async updateCourseById(course: Element) {
+  public static async updateCourseById(course: CourseElement) {
     const courses = await Course.getAllCourses();
     const index = courses.findIndex(c => c.id === course.id);
     courses[index] = course;
@@ -48,7 +48,7 @@ export class Course {
       )
     })
   }
-  public static async getAllCourses(): Promise<Array<Element>> {
+  public static async getAllCourses(): Promise<Array<CourseElement>> {
     return new Promise((resolve, reject) => {
       fs.readFile(
         path.join(__dirname, '..', 'data', 'courses.json'),
@@ -63,9 +63,9 @@ export class Course {
       )
     })
   }
-  public async save() {
+  public static async save(newCourse: CourseElement) {
     const courses = await Course.getAllCourses();
-    courses.push(this.toJSON());
+    courses.push(this.toJSON(newCourse));
     return new Promise((resolve, reject) => {
       fs.writeFile(
         path.join(__dirname, "..", "data", "courses.json"),

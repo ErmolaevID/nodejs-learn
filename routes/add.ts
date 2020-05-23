@@ -11,8 +11,8 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const course = new Course(req.body.title, req.body.price, req.body.img);
-  await course.save();
+  const course = new Course(req.body.title, Number(req.body.price), req.body.img);
+  await Course.save(course);
   res.redirect("/courses");
 });
 

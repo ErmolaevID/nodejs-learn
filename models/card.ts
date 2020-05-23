@@ -1,15 +1,14 @@
-import { Element } from "./course";
+import { CourseElement } from "./course";
 import fs = require("fs");
 import path = require("path");
 
-interface Card_ {
-  courses: Array<Element>;
+interface ICard {
+  courses: Array<CourseElement>;
   price: number;
 }
 
-
 export class Card {
-  public static async addCourseInCard(course: Element) {
+  public static async addCourseInCard(course: CourseElement) {
     const card = await Card.fetch();
     const index = card.courses.findIndex(c => c.id === course.id);
     const candidate = card.courses[index];
@@ -35,7 +34,7 @@ export class Card {
       )
     })
   }
-  public static async fetch(): Promise<Card_> {
+  public static async fetch(): Promise<ICard> {
     return new Promise((resolve, reject) => {
       fs.readFile(
         path.join(__dirname, "..", "data", 'card.json'),
