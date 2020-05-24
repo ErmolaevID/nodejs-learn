@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { Course } from "../models/course"
+import { Course } from "../models/course";
+import { Card } from "../models/card";
 const router = Router();
 
 router.get("/", async (req, res) => {
@@ -34,6 +35,7 @@ router.get("/:id/edit", async (req, res) => {
 })
 router.post("/edit", async (req, res) => {
   await Course.updateCourseById(req.body);
+  await Card.updateCardCourses(req.body);
   res.redirect("/courses");
 })
 

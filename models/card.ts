@@ -19,7 +19,7 @@ export class Card {
       course.count = 1;
       card.courses.push(course);
     }
-    card.price += course.price;
+    card.price += Number(course.price);
     return new Promise((resolve, reject) => {
       fs.writeFile(
         path.join(__dirname, "..", "data", "card.json"),
@@ -44,6 +44,26 @@ export class Card {
             reject(error);
           } else {
             resolve(JSON.parse(content));
+          }
+        }
+      )
+    })
+  }
+  public static async updateCardCourses(course: CourseElement) {
+    let card = await Card.fetch();
+    let courseToChange = card.courses.find(c => c.id === course.id);
+    card.price -= Number(courseToChange.price) * Number(courseToChange.count);
+    courseToChange.price = Number(course.price);
+    card.price += Number(courseToChange.price) * Number(courseToChange.count);
+    return new Promise((resolve, reject) => {
+      fs.writeFile(
+        path.join(__dirname, "..", "data", "card.json"),
+        JSON.stringify(card),
+        (error) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve();
           }
         }
       )
