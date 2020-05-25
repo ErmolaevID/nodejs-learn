@@ -20,19 +20,7 @@ export class Card {
       card.courses.push(course);
     }
     card.price += Number(course.price);
-    return new Promise((resolve, reject) => {
-      fs.writeFile(
-        path.join(__dirname, "..", "data", "card.json"),
-        JSON.stringify(card),
-        (error) => {
-          if (error) {
-            reject(error);
-          } else {
-            resolve();
-          }
-        }
-      )
-    })
+    return Card.writeJSON(card);
   }
   public static async fetch(): Promise<ICard> {
     return new Promise((resolve, reject) => {
@@ -55,19 +43,7 @@ export class Card {
     card.price -= Number(courseToChange.price) * Number(courseToChange.count);
     courseToChange.price = Number(course.price);
     card.price += Number(courseToChange.price) * Number(courseToChange.count);
-    return new Promise((resolve, reject) => {
-      fs.writeFile(
-        path.join(__dirname, "..", "data", "card.json"),
-        JSON.stringify(card),
-        (error) => {
-          if (error) {
-            reject(error);
-          } else {
-            resolve();
-          }
-        }
-      )
-    })
+    return Card.writeJSON(card);
   }
   public static async removeCardCourse(id: string) {
     let card = await Card.fetch();
@@ -82,6 +58,9 @@ export class Card {
       delete card.courses[courseToRemoveIndex];
       card.price -= courseToRemove.price;
     }
+    return Card.writeJSON(card);
+  }
+  private static async writeJSON(card: ICard) {
     return new Promise((resolve, reject) => {
       fs.writeFile(
         path.join(__dirname, "..", "data", "card.json"),
