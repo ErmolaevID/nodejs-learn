@@ -69,4 +69,31 @@ export class Card {
       )
     })
   }
+  public static async removeCardCourse(id: string) {
+    let card = await Card.fetch();
+    console.log(card)
+    let courseToRemove = card.courses.find(c => c.id === id);
+    console.log(courseToRemove);
+    let courseToRemoveIndex = card.courses.findIndex(c => c.id === id);
+    if (courseToRemove.count > 1) {
+      courseToRemove.count -= 1;
+      card.price -= courseToRemove.price;
+    } else {
+      delete card.courses[courseToRemoveIndex];
+      card.price -= courseToRemove.price;
+    }
+    return new Promise((resolve, reject) => {
+      fs.writeFile(
+        path.join(__dirname, "..", "data", "card.json"),
+        JSON.stringify(card),
+        (error) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(card);
+          }
+        }
+      )
+    })
+  }
 }
