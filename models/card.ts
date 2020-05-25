@@ -2,7 +2,7 @@ import { CourseElement } from "./course";
 import fs = require("fs");
 import path = require("path");
 
-interface ICard {
+export interface ICard {
   courses: Array<CourseElement>;
   price: number;
 }
@@ -47,16 +47,14 @@ export class Card {
   }
   public static async removeCardCourse(id: string) {
     let card = await Card.fetch();
-    console.log(card)
     let courseToRemove = card.courses.find(c => c.id === id);
-    console.log(courseToRemove);
     let courseToRemoveIndex = card.courses.findIndex(c => c.id === id);
     if (courseToRemove.count > 1) {
       courseToRemove.count -= 1;
       card.price -= courseToRemove.price;
     } else {
-      delete card.courses[courseToRemoveIndex];
       card.price -= courseToRemove.price;
+      card.courses = card.courses.filter(c => c.id !== courseToRemove.id);
     }
     return Card.writeJSON(card);
   }

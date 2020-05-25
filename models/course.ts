@@ -8,6 +8,7 @@ export interface CourseElement {
   img: string;
   id: string;
   count?: number;
+  length?: number;
 }
  
 export class Course {
